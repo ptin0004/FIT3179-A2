@@ -2,8 +2,8 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": { "url": "https://raw.githubusercontent.com/ptin0004/FIT3179-A2/main/data/fertility_rate_malaysia_year.csv" },
     "vconcat": [{
-        "width": "container",
-        "height": 240,
+       "width": 870,
+       "height": 400,
         "mark": "area",
         "encoding": {
             "x": {
@@ -19,7 +19,7 @@
                 }
         }
     }, {
-        "width": "container",
+        "width": 870,
         "height": 80,
         "mark": "area",
         "params": [{
