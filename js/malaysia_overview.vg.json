@@ -1,24 +1,26 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": { "url": "https://raw.githubusercontent.com/ptin0004/FIT3179-A2/main/data/fertility_rate_malaysia.csv" },
+    "data": { "url": "https://raw.githubusercontent.com/ptin0004/FIT3179-A2/main/data/fertility_rate_malaysia_year.csv" },
     "vconcat": [{
         "width": "container",
         "height": 240,
         "mark": "area",
         "encoding": {
             "x": {
-                "field": "Date",
+                "field": "Year",
                 "type": "temporal",
                 "scale": { "domain": { "param": "brush" } },
-                "axis": { "title": "", "tickCount": 10 }
+                "axis": { "title": "", "tickCount": 15 }
             },
-            "y": { "field": "Total_Fertility_Rate", 
+            "y": { "field": "Rate", 
                     "type": "quantitative",
-                    "title": "Total Fertility Rate"}
+                    "title": "Total Fertility Rate",
+                    "scale": { "domain": [0, 7] }
+                }
         }
     }, {
         "width": "container",
-        "height": 60,
+        "height": 80,
         "mark": "area",
         "params": [{
             "name": "brush",
@@ -26,15 +28,16 @@
         }],
         "encoding": {
             "x": {
-                "field": "Date",
-                "type": "temporal",
-                "axis": { "tickCount": 10 }
+                "field": "Year",
+                "type": "temporal",  
+                "axis": { "tickCount": 15 }
             },
             "y": {
-                "field": "Total_Fertility_Rate",
+                "field": "Rate",
                 "type": "quantitative",
                 "title": "Total Fertility Rate",
-                "axis": { "tickCount": 3, "grid": false }
+                "axis": { "tickCount": 3, "grid": false },
+                "scale": { "domain": [0, 7] }
             }
         }
     }]
