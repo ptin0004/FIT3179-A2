@@ -1,3 +1,9 @@
+body *{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12;
+}
+
+  
 .page {
 	width: 850px;
 	background-color: white;
@@ -6,10 +12,26 @@
 	padding-top: 35px;
   }
   
+h1 {
+	font-weight: 900;
+	font-size: 50;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+h2 {
+	font-weight: 700;
+	font-size: 30;
+	font-family: 'Times New Roman', Times, serif;
+}
+
 .vis-container {
 	width: 100%;
 }
 
+.description-left {
+	padding-right: 20px;
+}
+
 .pure-g {
-  margin-bottom: 40px;
+	margin-bottom: 60px;
 }
