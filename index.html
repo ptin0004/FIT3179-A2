@@ -68,6 +68,19 @@
         </div>
         <!-- end pure grid group -->
 
+        <!-- pure grid group for visualizations -->
+        <div class="pure-g">
+            <!-- Forth visualization container -->
+            <div class="pure-u-1-4">
+                <h2>Title 4</h2>
+                <p>
+                    Description 4
+                </p>
+                <div id="vis4" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
 
     </div> <!-- end page -->
 
@@ -76,6 +89,7 @@
     var spec1 = "js/choropleth_map.vg.json";
     var spec2 = "js/fertility_rate_vs_gdp.vg.json";
     var spec3 = "js/malaysia_overview.vg.json";
+    var spec4 = "js/line_graph_by_age.vg.json";
 
     // Embed first visualization
     vegaEmbed('#vis1', spec1, { "actions": false }).then(function(result) {
@@ -87,8 +101,13 @@
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
-    // Embed second visualization
+    // Embed third visualization
     vegaEmbed('#vis3', spec3, { "actions": false }).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    // Embed third visualization
+    vegaEmbed('#vis4', spec4, { "actions": false }).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
     
