@@ -38,21 +38,20 @@
              <div id="vis2" class="vis-container"></div>
         </div>
 
-        <!-- <div class="section">
-            <h2>How Has Malaysia’s Fertility Rate Changed Over Time?</h2>
-            <p>
-                The fertility rate has gradually decreased from over six children per woman in the 1960s to under two in recent years.
-                This trend reflects Malaysia's demographic shift towards smaller family sizes, similar to other developing countries undergoing economic transformation. 
-            </p>
-            <div id="vis3" class="vis-container"></div>
-        </div> -->
-
         <div class="section">
             <h2>How Does Fertility Rate Vary by Age in Malaysia?</h2>
             <p>
                 The most significant decline can be seen in the 20-24 age group, followed closely by the 15-19 and 25-29 groups. 
                 These trends reflect Malaysia's transition towards lower fertility rates and smaller family sizes, typical of developing economies.
             </p>
+            <div id="vis3" class="vis-container"></div>
+        </div>
+
+        <div class="section">
+            <h2>Title 4</h2>
+            <p>
+                Description 4 
+             </p>
             <div id="vis4" class="vis-container"></div>
         </div>
 
@@ -65,13 +64,15 @@
                 <a href="https://www.kaggle.com/datasets/nelgiriyewithana/countries-of-the-world-2023" target="_blank">Global Country Information Dataset 2023</a>
             </p>
         </div>
+
     </div>
 
     <script type="text/javascript">
         var spec1 = "js/choropleth_map.vg.json";
         var spec2 = "js/fertility_rate_vs_gdp.vg.json";
-        var spec3 = "js/malaysia_overview.vg.json";
-        var spec4 = "js/line_graph_by_age.vg.json";
+        var spec3 = "js/line_graph_by_age.vg.json";
+        var spec4 = "js/";
+
 
         vegaEmbed('#vis1', spec1, { "actions": false }).catch(console.error);
         vegaEmbed('#vis2', spec2, { "actions": false }).catch(console.error);
