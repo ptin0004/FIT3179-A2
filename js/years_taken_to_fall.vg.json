@@ -1,0 +1,61 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "How long did it take for fertility to fall from more than 6 children per woman to fewer than 2 children per woman?",
+    "title": "Years for Fertility to Fall from more than 6 to less than 2 Children per Woman",
+    "data": {
+      "url": "https://raw.githubusercontent.com/ptin0004/FIT3179-A2/main/data/fertility_rate_duration.csv",
+      "format": {"type": "csv"}
+    },
+    "width": 900,
+    "height": 600,
+    "layer": [
+      {
+        "mark": {
+          "type": "bar",
+          "color": "#4C72B0"
+        },
+        "encoding": {
+          "x": {
+            "field": "Duration_Years",
+            "type": "quantitative",
+            "title": "Duration (Years)",
+            "axis": {"grid": false}
+          },
+          "y": {
+            "field": "Country",
+            "type": "nominal",
+            "sort": {"field": "Duration_Years", "order": "descending"},
+            "title": "Country",
+            "axis": {"labelLimit": 300}
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal", "title": "Country"},
+            {"field": "Start_Year", "type": "quantitative", "title": "Start Year"},
+            {"field": "End_Year", "type": "quantitative", "title": "End Year"},
+            {"field": "Duration_Years", "type": "quantitative", "title": "Duration (Years)"}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "color": "black",
+          "dx": 40,
+          "dy": 0,
+          "fontWeight": "bold"
+        },
+        "encoding": {
+          "x": {"field": "Duration_Years", "type": "quantitative"},
+          "y": {"field": "Country", "type": "nominal","sort": {"field": "Duration_Years", "order": "descending"}},
+          "text": {
+            "condition": {
+              "test": "datum.Country == 'Malaysia'",
+              "value": "Malaysia - 59 years"
+            },
+            "value": ""
+          }
+        }
+      }
+    ]
+  }
+  
