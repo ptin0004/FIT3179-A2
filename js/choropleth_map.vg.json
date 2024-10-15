@@ -41,7 +41,7 @@
           "lookup": "properties.NAME",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/ptin0004/FIT3179-W10/main/data/world-data-2023.csv"
+              "url": "https://raw.githubusercontent.com/ptin0004/FIT3179-A2/main/data/world-data-2023.csv"
             },
             "key": "Country",
             "fields": ["Fertility_Rate"]
