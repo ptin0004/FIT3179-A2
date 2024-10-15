@@ -22,7 +22,6 @@
         <div class="section">
             <h2>How Does Fertility Vary Across the World in 2023?</h2>
             <p>
-                Darker shades indicate higher fertility rates, revealing significant regional differences. 
                 Countries in Africa exhibit much higher fertility rates compared to developed nations like the United States, Australia, and China. 
                 The map allows us to see global trends and identify regions where population growth is most significant.
             </p>
@@ -32,8 +31,8 @@
         <div class="section">
             <h2>Does Economic Growth Affect Fertility Rates?</h2>
             <p>
-                The size of the circles represents population size, while the color indicates the continent. Countries with higher GDPs 
-               such as Singapore and Australia tend to have lower fertility rates, whereas countries like Yemen with lower GDP have higher fertility rates.
+                Countries with higher GDPs such as Singapore and Australia tend to have lower fertility rates, 
+                whereas countries like Yemen with lower GDP have higher fertility rates.
             </p>
              <div id="vis2" class="vis-container"></div>
         </div>
@@ -41,16 +40,17 @@
         <div class="section">
             <h2>How Does Fertility Rate Vary by Age in Malaysia?</h2>
             <p>
-                The most significant decline can be seen in the 20-24 age group, followed closely by the 15-19 and 25-29 groups. 
+                The most significant decline can be seen in the 20-24 age group. 
                 These trends reflect Malaysia's transition towards lower fertility rates and smaller family sizes, typical of developing economies.
             </p>
             <div id="vis3" class="vis-container"></div>
         </div>
 
         <div class="section">
-            <h2>Title 4</h2>
+            <h2>How Have Fertility Rates Changed Across Malaysia Over Two Decades?</h2>
             <p>
-                Description 4 
+                Kelantan has the most significant decline, but is still one of the highest fertility rates in 2022, indicating rural family dynamics.
+                Pulau Pinang and W.P. Kuala Lumpur have the lowest fertility rates in 2022. This is likely due to urbanization, higher living costs and delayed marriages.
              </p>
             <div id="vis4" class="vis-container"></div>
         </div>
@@ -60,8 +60,10 @@
             <p>
                 Copyright © 2024 Phoebe Ting Wei Jia<br>
                 Data sources:
-                <a href="https://open.dosm.gov.my/data-catalogue/fertility?age_group=tfr&visual=fertility_rate" target="_blank"> Malaysia Fertility Rate</a> and 
-                <a href="https://www.kaggle.com/datasets/nelgiriyewithana/countries-of-the-world-2023" target="_blank">Global Country Information Dataset 2023</a>
+                <a href="https://open.dosm.gov.my/data-catalogue/fertility?age_group=tfr&visual=fertility_rate" target="_blank"> Malaysia Fertility Rate</a>,
+                <a href="https://www.kaggle.com/datasets/nelgiriyewithana/countries-of-the-world-2023" target="_blank">Global Country Information Dataset 2023</a>,
+                <a href="" target="_blank">Name</a>,
+                <a href="" target="_blank">Name</a>
             </p>
         </div>
 
@@ -71,7 +73,7 @@
         var spec1 = "js/choropleth_map.vg.json";
         var spec2 = "js/fertility_rate_vs_gdp.vg.json";
         var spec3 = "js/line_graph_by_age.vg.json";
-        var spec4 = "js/";
+        var spec4 = "js/fertility_rate_by_state.vg.json";
 
 
         vegaEmbed('#vis1', spec1, { "actions": false }).catch(console.error);

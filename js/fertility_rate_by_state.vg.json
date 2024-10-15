@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Fertility rates in 2001 and 2022 for each state in Malaysia.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ptin0004/FIT3179-A2/main/data/fertility_rate_by_state.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {"filter": {"field": "year", "oneOf": [2001, 2022]}}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "rule"},
+      "encoding": {
+        "y": {"field": "state", "type": "nominal", "axis": {"title": null}},
+        "x": {
+          "aggregate": "min",
+          "field": "fertility_rate",
+          "type": "quantitative",
+          "axis": {"title": "Fertility Rate"}
+        },
+        "x2": {"aggregate": "max", "field": "fertility_rate"},
+        "color": {"value": "grey"}
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 300},
+      "encoding": {
+        "y": {"field": "state", "type": "nominal"},
+        "x": {"field": "fertility_rate", "type": "quantitative"},
+        "color": {
+          "field": "year",
+          "type": "nominal",
+          "scale": {
+            "domain": [2001, 2022],
+            "range": ["#17a2b8", "#ff6f61"] 
+          },
+          "legend": {"title": "Year"}
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "fertility_rate", "type": "quantitative", "title": "Fertility Rate"},
+          {"field": "year", "type": "nominal", "title": "Year"}
+        ]
+      }
+    }
+  ],
+  "width": 950,
+  "height": 500
+}
