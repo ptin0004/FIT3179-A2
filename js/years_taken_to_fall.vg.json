@@ -8,54 +8,30 @@
     },
     "width": 900,
     "height": 600,
-    "layer": [
-      {
-        "mark": {
-          "type": "bar",
-          "color": "#4C72B0"
-        },
-        "encoding": {
-          "x": {
-            "field": "Duration_Years",
-            "type": "quantitative",
-            "title": "Duration (Years)",
-            "axis": {"grid": false}
-          },
-          "y": {
-            "field": "Country",
-            "type": "nominal",
-            "sort": {"field": "Duration_Years", "order": "descending"},
-            "title": "Country",
-            "axis": {"labelLimit": 300}
-          },
-          "tooltip": [
-            {"field": "Country", "type": "nominal", "title": "Country"},
-            {"field": "Start_Year", "type": "quantitative", "title": "Start Year"},
-            {"field": "End_Year", "type": "quantitative", "title": "End Year"},
-            {"field": "Duration_Years", "type": "quantitative", "title": "Duration (Years)"}
-          ]
-        }
+    "mark": {
+      "type": "bar",
+      "color": "#4C72B0"
+    },
+    "encoding": {
+      "x": {
+        "field": "Duration_Years",
+        "type": "quantitative",
+        "title": "Duration (Years)",
+        "axis": {"grid": false}
       },
-      {
-        "mark": {
-          "type": "text",
-          "color": "black",
-          "dx": 40,
-          "dy": 0,
-          "fontWeight": "bold"
-        },
-        "encoding": {
-          "x": {"field": "Duration_Years", "type": "quantitative"},
-          "y": {"field": "Country", "type": "nominal","sort": {"field": "Duration_Years", "order": "descending"}},
-          "text": {
-            "condition": {
-              "test": "datum.Country == 'Malaysia'",
-              "value": "Malaysia - 59 years"
-            },
-            "value": ""
-          }
-        }
-      }
-    ]
+      "y": {
+        "field": "Country",
+        "type": "nominal",
+        "title": "Country",
+        "sort": {"field": "Duration_Years", "order": "descending"},
+        "axis": {"labelLimit": 300}
+      },
+      "tooltip": [
+        {"field": "Country", "type": "nominal", "title": "Country"},
+        {"field": "Start_Year", "type": "quantitative", "title": "Start Year"},
+        {"field": "End_Year", "type": "quantitative", "title": "End Year"},
+        {"field": "Duration_Years", "type": "quantitative", "title": "Duration (Years)"}
+      ]
+    }
   }
   
