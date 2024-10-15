@@ -4,57 +4,93 @@ body * {
 }
 
 .page {
-    width: 1200px;
+    width: 100%;  
+    max-width: 1200px;  
     background-color: white;
     margin: auto;
     padding: 40px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center; 
 }
 
 h1 {
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+    text-align: center;
     font-weight: 900;
-    font-size: 72px;
+    font-size: 70px;
     font-family: 'Times New Roman', Times, serif;
     margin-bottom: 40px;
-    text-align: center;
 }
 
 h2 {
+    max-width: 1000px;
+    margin: 0 auto 20px auto;
+    text-align: center;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 38px;
     font-family: 'Times New Roman', Times, serif;
     margin-bottom: 10px;
-    margin-left: 20px;
-    text-align: left;
 }
 
 p {
     font-size: 16px;
     margin-bottom: 25px;
-    margin-left: 20px;
     line-height: 1.5;
     color: #333;
-    max-width: 800px;
+    max-width: 800px;  
+    margin: 0 auto;  
+    text-align: justify; /* Justifies the text inside the paragraph */
 }
 
-.vis-container{
-    margin-left: 12px;
+.section p {
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.5;
+    margin-bottom: 50px;
+}
+
+.vis-container {
+    margin: 0 auto;
+    text-align: center;
 }
 
 #vis6 {
-margin-bottom: 40px; /* Adds extra space between the first row and second row */
+    margin-bottom: 40px;
 }
 
 .section {
-    margin-bottom: 60px;
+    margin-bottom: 100px;
     padding: 30px;
     border-radius: 10px;
+    text-align: center;
 }
 
+/* Copyright section styling */
 .copyright-section {
-    text-align: center; /* Ensure text is centered */
-    padding-top: 20px;
-	padding-left: 180px;
-    padding-bottom: 10px;
-    border-radius: 10px;
+    text-align: left;  /* Left-align the entire section */
+    margin-bottom: 20px;
+    width: 100%; /* Ensure full width */
+}
+
+.copyright {
+    margin-bottom: 10px;
+    text-align: left; /* Ensure the copyright text is left-aligned */
+    max-width: none; /* Remove any width restriction */
+}
+
+.data-sources {
+    text-align: left; /* Keep the data sources left-aligned */
+    margin-top: 10px;
+    line-height: 1.6;
+    width: 100%; /* Ensure it spans the full width */
+    max-width: none; /* Remove the width restriction */
+    display: block; /* Ensure it can take up as much space as needed */
+}
+
+/* Specific paragraph styles for copyright section to avoid overriding by global p styling */
+.copyright-section p {
+    max-width: none;
+    text-align: left; /* Left-align copyright and data source paragraphs */
+    margin: 0;  /* Remove any auto margins */
 }
