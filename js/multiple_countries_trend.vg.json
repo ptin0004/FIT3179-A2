@@ -1,0 +1,80 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/ptin0004/FIT3179-A2/main/data/global_fertility_rate_by_year.csv"
+    },
+    "transform": [
+      {
+        "filter": {
+          "field": "Country",
+          "oneOf": ["Australia", "Brazil", "Canada", "China"]
+        }
+      },
+      {
+        "filter": "datum.Year >= 1960 && datum.Year <= 2020"
+      },
+      {
+        "calculate": "toDate(datum.Year + '')", 
+        "as": "YearParsed"
+      }
+    ],
+    "facet": {
+      "field": "Country",
+      "title": "",
+      "header": {
+        "labelFontSize": 16, 
+        "labelFontWeight": "bold"  
+      } 
+    },
+    "spec": {
+      "mark": {
+        "type": "area",
+        "line": {
+          "color": "blue"
+        },
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "YearParsed",
+          "type": "temporal",
+          "axis": {
+            "format": "%Y",
+            "title": ""
+          }
+        },
+        "y": {
+          "field": "Fertility_Rate",
+          "type": "quantitative",
+          "title": "Fertility Rate",
+          "scale": {
+            "domain": [0, 10]
+          }
+        },
+        "color": {
+          "field": "Country",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Australia", "Brazil", "Canada", "China"],
+            "range": ["#F4A7AA", "#9E7B8D", "#C8B39A", "#56797B"]
+          },
+          "legend": {
+            "title": "Country",
+            "orient": "right"
+          }
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal", "title": "Country"},
+          {"field": "YearParsed", "type": "temporal", "title": "Year", "format": "%Y"},
+          {"field": "Fertility_Rate", "type": "quantitative", "title": "Fertility Rate"}
+        ]
+      }
+    },
+    "config": {
+      "view": {
+        "continuousWidth": 220,
+        "continuousHeight": 180
+      }
+    }
+  }
+  

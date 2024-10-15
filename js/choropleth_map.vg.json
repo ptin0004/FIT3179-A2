@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Global Fertility Rate in 2023",
-  "width": 1000,
-  "height": 600,
+  "width": 1030,
+  "height": 700,
   "projection": {"type": "equalEarth"},
 
   "data": {

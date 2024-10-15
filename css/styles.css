@@ -41,6 +41,10 @@ p {
     margin-left: 12px;
 }
 
+#vis6 {
+margin-bottom: 40px; /* Adds extra space between the first row and second row */
+}
+
 .section {
     margin-bottom: 60px;
     padding: 30px;
