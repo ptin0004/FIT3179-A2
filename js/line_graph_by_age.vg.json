@@ -1,72 +1,384 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Age-Specific Fertility Rate in Malaysia (1958-2022)",
-    "width": 800,
-    "height": 400,
-    "params": [
-      {
-        "name": "AgeGroup",
-        "bind": {
-          "input": "select",
-          "options": [
-            null,
-            "15-19",
-            "20-24",
-            "25-29",
-            "30-34",
-            "35-39",
-            "40-44",
-            "45-49"
-          ],
-          "labels": [
-            "All Age Groups",
-            "15-19",
-            "20-24",
-            "25-29",
-            "30-34",
-            "35-39",
-            "40-44",
-            "45-49"
-          ],
-          "name": "Filter by Age Group: "
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Age-Specific Fertility Rate in Malaysia (1958-2022)",
+  "width": 800,
+  "height": 400,
+  "params": [
+    {
+      "name": "AgeGroup",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "15-19",
+          "20-24",
+          "25-29",
+          "30-34",
+          "35-39",
+          "40-44",
+          "45-49"
+        ],
+        "labels": [
+          "All Age Groups",
+          "15-19",
+          "20-24",
+          "25-29",
+          "30-34",
+          "35-39",
+          "40-44",
+          "45-49"
+        ],
+        "name": "Filter by Age Group: "
       }
-    ],
-    "data": {
-      "url": "https://raw.githubusercontent.com/ptin0004/FIT3179-A2/main/data/fertility_rate_by_age_group.csv",
-      "format": {
-        "type": "csv"
+    }
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/ptin0004/FIT3179-A2/main/data/fertility_rate_by_age_group.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "filter": "AgeGroup == null || datum.Age_Group == AgeGroup"
+    }
+  ],
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "temporal",
+          "title": "Year",
+          "axis": {"tickCount": 10}
+        },
+        "y": {
+          "field": "Rate",
+          "type": "quantitative",
+          "title": "Fertility Rate"
+        },
+        "color": {
+          "field": "Age_Group",
+          "type": "nominal",
+          "title": "Age Group",
+          "legend": {"title": "Age Group"}
+        },
+        "tooltip": [
+          {"field": "Year", "type": "temporal"},
+          {"field": "Age_Group", "type": "nominal", "title": "Age Group"},
+          {"field": "Rate", "type": "quantitative", "title": "Fertility Rate"}
+        ]
       }
     },
-    "transform": [
-      {
-        "filter": "AgeGroup == null || datum.Age_Group == AgeGroup"
+    {
+      "transform": [
+        {"filter": "AgeGroup == '15-19'"},
+        {"filter": "datum.Year >= -283996800000 && datum.Year <= 0"}
+      ],
+      "mark": {
+        "type": "line",
+        "color": "darkblue",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {"field": "Year", "type": "temporal"},
+        "y": {"field": "Rate", "type": "quantitative"}
       }
+    },
+    {
+      "transform": [
+        {"filter": "AgeGroup == '15-19'"}, 
+        {"filter": "datum.Year == -283996800000"}  
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "point",
+            "size": 150,  
+            "color": "darkblue",  
+            "filled": true 
+          },
+          "encoding": {
+            "x": {"field": "Year", "type": "temporal"},
+            "y": {"field": "Rate", "type": "quantitative"}
+          }
+        },
+        {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": 100,
+          "dy": 100,
+          "color": "black"
+        },
+        "encoding": {
+          "x": {"field": "Year", "type": "temporal"},
+          "y": {"field": "Rate", "type": "quantitative"},
+          "text": {"value": "Sharp decline during 1961-1970 due to increased contraception awareness among young womens"}
+        }
+      }]
+    },  
+    {
+      "transform": [
+        {"filter": "AgeGroup == '15-19'"}, 
+        {"filter": "datum.Year == 0"}  
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "point",
+            "size": 150,  
+            "color": "darkblue",  
+            "filled": true 
+          },
+          "encoding": {
+            "x": {"field": "Year", "type": "temporal"},
+            "y": {"field": "Rate", "type": "quantitative"}
+          }
+        },
+        {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": 0,
+          "dy": -70,
+          "color": "black"
+        },
+        "encoding": {
+          "x": {"field": "Year", "type": "temporal"},
+          "y": {"field": "Rate", "type": "quantitative"},
+          "text": {"value": "and rising educational opportunities, delaying marriage and early pregnancies."}
+        }
+      }]
+    },  
+  {
+    "transform": [
+      {"filter": "AgeGroup == '25-29'"}, 
+      {"filter": "datum.Year == 1577836800000"}
     ],
-    "mark": "line",
+    "layer": [
+      {
+        "mark": {
+          "type": "point",
+          "size": 150,
+          "color": "darkblue",
+          "filled": true
+        },
+        "encoding": {
+          "x": {"field": "Year", "type": "temporal"},
+          "y": {"field": "Rate", "type": "quantitative"}
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": -350,
+          "dy": 15,
+          "color": "black"
+        },
+        "encoding": {
+          "x": {"field": "Year", "type": "temporal"},
+          "y": {"field": "Rate", "type": "quantitative"},
+          "text": {"value": "The slight increase after 2020 may be due to the COVID-19 lockdowns."}
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": -350,
+          "dy": 30,
+          "color": "black"
+        },
+        "encoding": {
+          "x": {"field": "Year", "type": "temporal"},
+          "y": {"field": "Rate", "type": "quantitative"},
+          "text": {"value": "More couples opted to start or expand families due to spending"}
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": -350,
+          "dy": 45,
+          "color": "black"
+        },
+        "encoding": {
+          "x": {"field": "Year", "type": "temporal"},
+          "y": {"field": "Rate", "type": "quantitative"},
+          "text": {"value": "More time at home and uncertainties about the future."}
+        }
+      }
+    ]
+  },
+
+  {
+    "transform": [
+      {"filter": "AgeGroup == '45-49'"},
+      {"filter": "datum.Year >= -252460800000 && datum.Year <= -189388800000"}
+    ],
+    "mark": {
+      "type": "line",
+      "color": "darkblue",
+      "strokeWidth": 3
+    },
     "encoding": {
-      "x": {
-        "field": "Year",
-        "type": "temporal",
-        "title": "Year",
-        "axis": {"tickCount": 10}
-      },
-      "y": {
-        "field": "Rate",
-        "type": "quantitative",
-        "title": "Fertility Rate"
-      },
-      "color": {
-        "field": "Age_Group",
-        "type": "nominal",
-        "title": "Age Group",
-        "legend": {"title": "Age Group"}
-      },
-      "tooltip": [
-        {"field": "Year", "type": "temporal"},
-        {"field": "Age_Group", "type": "nominal", "title": "Age Group"},
-        {"field": "Rate", "type": "quantitative", "title": "Fertility Rate"}
-      ]
+      "x": {"field": "Year", "type": "temporal"},
+      "y": {"field": "Rate", "type": "quantitative"}
+    }
+  }, 
+
+  {
+    "transform": [
+      {"filter": "AgeGroup == '45-49'"},
+      {"filter": "datum.Year == -252460800000"}
+    ],
+    "mark": {
+      "type": "point",
+      "size": 100,
+      "color": "darkblue",
+      "filled": true
+    },
+    "encoding": {
+      "x": {"field": "Year", "type": "temporal"},
+      "y": {"field": "Rate", "type": "quantitative"}
+    }
+  },
+  {
+    "transform": [
+      {"filter": "AgeGroup == '45-49'"},
+      {"filter": "datum.Year == -189388800000"}
+    ],
+    "mark": {
+      "type": "point",
+      "size": 100,
+      "color": "darkblue",
+      "filled": true
+    },
+    "encoding": {
+      "x": {"field": "Year", "type": "temporal"},
+      "y": {"field": "Rate", "type": "quantitative"}
+    }
+  },
+  {
+    "transform": [
+      {"filter": "AgeGroup == '45-49'"},
+      {"filter": "datum.Year == -252460800000"}
+    ],
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "middle",
+      "dx": 15,
+      "dy": -130,
+      "color": "black"
+    },
+    "encoding": {
+      "x": {"field": "Year", "type": "temporal"},
+      "y": {"field": "Rate", "type": "quantitative"},
+      "text": {"value": "Rapid spike from 1962-1964 due to post-war population surge and delayed childbearing."}
+    }
+  },
+
+  {
+    "transform": [
+      {"filter": "AgeGroup == '45-49'"},
+      {"filter": "datum.Year == 631152000000"}
+    ],
+    "mark": {
+      "type": "point",
+      "size": 100,
+      "color": "darkblue",
+      "filled": true
+    },
+    "encoding": {
+      "x": {"field": "Year", "type": "temporal"},
+      "y": {"field": "Rate", "type": "quantitative"}
+    }
+  },
+  {
+    "transform": [
+      {"filter": "AgeGroup == '45-49'"},
+      {"filter": "datum.Year == 1640995200000"}
+    ],
+    "mark": {
+      "type": "point",
+      "size": 100,
+      "color": "darkblue",
+      "filled": true
+    },
+    "encoding": {
+      "x": {"field": "Year", "type": "temporal"},
+      "y": {"field": "Rate", "type": "quantitative"}
+    }
+  },
+
+
+
+  {
+    "transform": [
+      {"filter": "AgeGroup == '45-49'"},
+      {"filter": "datum.Year >= 631152000000 && datum.Year <= 1640995200000"}
+    ],
+    "mark": {
+      "type": "line",
+      "color": "darkblue",
+      "strokeWidth": 3
+    },
+    "encoding": {
+      "x": {"field": "Year", "type": "temporal"},
+      "y": {"field": "Rate", "type": "quantitative"}
+    }
+  }, 
+  {
+    "transform": [
+      {"filter": "AgeGroup == '45-49'"},
+      {"filter": "datum.Year == 631152000000"}
+    ],
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "middle",
+      "dx": 40,
+      "dy": -25,
+      "color": "black"
+    },
+    "encoding": {
+      "x": {"field": "Year", "type": "temporal"},
+      "y": {"field": "Rate", "type": "quantitative"},
+      "text": {"value": "Sustained low levels after 1990 due to the natural decline in"}
+    }
+  },
+  {
+    "transform": [
+      {"filter": "AgeGroup == '45-49'"},
+      {"filter": "datum.Year == 631152000000"}
+    ],
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "middle",
+      "dx": 40,
+      "dy": -10,
+      "color": "black"
+    },
+    "encoding": {
+      "x": {"field": "Year", "type": "temporal"},
+      "y": {"field": "Rate", "type": "quantitative"},
+      "text": {"value": "fertility as women near the end of their reproductive years."}
     }
   }
   
+
+
+
+
+]}
